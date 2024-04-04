@@ -81,7 +81,9 @@
   padding: 20px;
   margin-right: 60px;
   text-align: center;
-  max-width: 200px;
+  max-width: 350px;
+  overflow: hidden;
+  max-height: 400px;
 }
 
 .partner-card:hover{

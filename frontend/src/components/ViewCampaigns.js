@@ -93,7 +93,6 @@ function ViewCampaigns({ role }) {
     fetchAllCampaigns(); 
   }, []);
   
-  //fetch again for the entered city
   async function submitHandler(event) {
     event.preventDefault();
     if (city === "") {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../CSS/PartnersPage.css";
-import orgImage from "../components/Images/tree-736885_1280.jpg"
+import orgImage from "../components/Images/tree-736885_1280.jpg";
 
 const PartnersPage = () => {
   const [brandPartners, setBrandPartners] = useState([]);
@@ -17,9 +17,7 @@ const PartnersPage = () => {
         const brandData = await brandResponse.json();
         setLoadingPercentage(20);
 
-        const orgResponse = await fetch(
-          "http://localhost:4000/partners/org"
-        );
+        const orgResponse = await fetch("http://localhost:4000/partners/org");
         setLoadingPercentage(40);
         const orgData = await orgResponse.json();
 
@@ -65,7 +63,10 @@ const PartnersPage = () => {
                 />
               </div>
               <span>{partner.orgName}</span>
-              <p>{partner.motive}</p>
+              <p>
+                {partner.motive.split(" ").slice(0, 60).join(" ")}
+                {partner.motive.length > 200 ? "..." : ""}
+              </p>
             </div>
           ))}
         </div>
@@ -74,7 +75,7 @@ const PartnersPage = () => {
       {selectedOrg && (
         <div className="organisation-partner-popup">
           <div className="organisation-partner-popup-container">
-            <div className="close-button" >
+            <div className="close-button">
               <span onClick={closePopup}>&times;</span>
             </div>
             <div className="organisation-partner-popup-content">
@@ -87,32 +88,7 @@ const PartnersPage = () => {
               <p>{selectedOrg.email}</p>
               <p>{selectedOrg.address}</p>
               <p>{selectedOrg.contactNumber}</p>
-              <p>
-                The motive of an NGO (Non-Governmental Organization) encapsulates a
-                multifaceted commitment to catalyzing positive change in society. Rooted
-                in a fervent dedication to addressing pressing issues, the motive of an
-                NGO is driven by a profound sense of social responsibility and a desire
-                to alleviate suffering, promote human rights, and foster sustainable
-                development. At its core, an NGO operates with the overarching goal of
-                advocating for marginalized communities, amplifying their voices, and
-                empowering them to access resources, opportunities, and essential
-                services. Whether focused on humanitarian aid, environmental
-                conservation, healthcare access, education, or socio-economic
-                development, the motive of an NGO is guided by principles of equity,
-                justice, and inclusivity. The motive of an NGO (Non-Governmental
-                Organization) encapsulates a multifaceted commitment to catalyzing
-                positive change in society. Rooted in a fervent dedication to addressing
-                pressing issues, the motive of an NGO is driven by a profound sense of
-                social responsibility and a desire to alleviate suffering, promote human
-                rights, and foster sustainable development. At its core, an NGO operates
-                with the overarching goal of advocating for marginalized communities,
-                amplifying their voices, and empowering them to access resources,
-                opportunities, and essential services. Whether focused on humanitarian
-                aid, environmental conservation, healthcare access, education, or
-                socio-economic development, the motive of an NGO is guided by
-                principles of equity, justice, and inclusivity.
-              </p>
-              {/* <p>{selectedOrg.motive}</p> */}
+              <p>{selectedOrg.motive}</p>
             </div>
           </div>
         </div>

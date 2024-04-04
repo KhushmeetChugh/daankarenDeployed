@@ -36,6 +36,8 @@
   .vnr-registration-details {
     flex: 1;
     margin-bottom: 20px;
+    overflow:scroll;
+    overflow-x: hidden;
   }
   
   .vnr-registration-details p {
