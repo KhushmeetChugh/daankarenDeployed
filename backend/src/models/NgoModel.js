@@ -45,6 +45,10 @@ const NgoSchema = mongoose.Schema({
         type:String,
         enum:["pending" , "approved"],
         default:"pending",
+    },
+    orgImage:{
+        type:[String],
+        required:false
     }
 });
 

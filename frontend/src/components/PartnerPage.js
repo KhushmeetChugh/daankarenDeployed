@@ -60,7 +60,7 @@ const PartnersPage = () => {
               <div className="partner-card-border-top">
                 <img
                   className="img"
-                  src={`https://via.placeholder.com/150`}
+                  src={partner.orgImage}
                   alt={partner.orgName}
                 />
               </div>
@@ -80,7 +80,7 @@ const PartnersPage = () => {
             <div className="organisation-partner-popup-content">
               <img
                 className="img"
-                src={orgImage}
+                src={selectedOrg.orgImage}
                 alt={selectedOrg.orgName}
               />
               <h3>{selectedOrg.orgName}</h3>

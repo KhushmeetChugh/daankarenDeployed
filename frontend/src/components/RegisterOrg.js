@@ -33,8 +33,7 @@ function RegisterOrgPage() {
     address: "",
     city: "",
     pincode: "",
-    state: "",
-    documents: null
+    state: ""
   });
 
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -57,7 +56,7 @@ function RegisterOrgPage() {
   }, []);
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value } = e.target;
 
     if (name === "contactNumber") {
       // Remove non-numeric characters from the input value
@@ -73,7 +72,7 @@ function RegisterOrgPage() {
     } else {
       setFormData((prevData) => ({
         ...prevData,
-        [name]: name === "documents" ? files[0] : value,
+        [name]: value,
       }));
     }
   };
@@ -88,20 +87,18 @@ function RegisterOrgPage() {
     }
 
     try {
-      const formDataToSend = new FormData();
-      for (const key in formData) {
-        formDataToSend.append(key, formData[key]);
-      }
-
       const res = await fetch("http://localhost:4000/registerOrg", {
         method: "POST",
-        body: formDataToSend,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({formData}),
       });
       alert("Form submitted successfully!");
 
       if (res.ok) {
         console.log("Registration Request Submitted");
-        navigate('/thankyou-page');
+        navigate('/thankyouPage');
       } else {
         console.log("Registration Failed");
       }
@@ -233,7 +230,7 @@ function RegisterOrgPage() {
             </div>
             <div className="register-org-form-field">
               <label htmlFor="documents" className="register-org-file-label">
-                <PiFilesFill className="register-org-file-icon" /> Upload Required Documents
+                <PiFilesFill className="register-org-file-icon" /> Upload Required Images
               </label>
               <input
                 type="file"
