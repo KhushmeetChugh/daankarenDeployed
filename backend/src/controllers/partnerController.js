@@ -12,7 +12,7 @@ exports.getBrandPartners = async (req, res, next) => {
 
 exports.getOrgPartners = async (req, res, next) => {
   try {
-    const people = await ngoModel.find(); 
+    const people = await ngoModel.find({ status : 'approved'}); 
     res.json(people);
   } catch (error) {
     next(error);

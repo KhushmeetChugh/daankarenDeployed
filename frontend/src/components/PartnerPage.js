@@ -58,14 +58,14 @@ const PartnersPage = () => {
               <div className="partner-card-border-top">
                 <img
                   className="img"
-                  src={partner.orgImage}
+                  src={"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"}
                   alt={partner.orgName}
                 />
               </div>
               <span>{partner.orgName}</span>
               <p>
-                {partner.motive.split(" ").slice(0, 60).join(" ")}
-                {partner.motive.length > 200 ? "..." : ""}
+                {partner.motive.split(" ").slice(0, 25).join(" ")}
+                {partner.motive.length > 100 ? "..." : ""}
               </p>
             </div>
           ))}

@@ -83,7 +83,7 @@
   text-align: center;
   max-width: 350px;
   overflow: hidden;
-  max-height: 400px;
+  min-height: 350px;
 }
 
 .partner-card:hover{
@@ -94,17 +94,20 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .partner-card img {
-  max-width: 100%;
+  width: 100px;
   border-radius: 50%;
+  height: 100px;
 }
 
 .partner-card span {
   font-weight: bold;
   margin-top: 10px;
-  display: block;
 }
 
 .partner-card p {
