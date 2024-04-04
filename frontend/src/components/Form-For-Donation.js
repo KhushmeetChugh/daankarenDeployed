@@ -113,10 +113,8 @@ const DonationForm = () => {
           itemsToDonate: itemsToDonate,
         }),
       });
-
+      navigate('/DonationPage');
       console.log("Response : ", response);
-
-      navigate('/thankyouPage');
       if (response.success) {
         console.log(response);
       }

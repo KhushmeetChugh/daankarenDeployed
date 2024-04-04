@@ -89,8 +89,8 @@ function LocationForm({ formData }) {
           throw new Error('Network response was not ok');
         } else {
           const responseData = await response.json();
-          setBackendMessage(responseData.message); 
-          navigate('/thankyou-page')// Set backend message
+          setBackendMessage(responseData.message);
+          // Set backend message
         }
       } catch (error) {
         console.error('Error:', error);
@@ -116,87 +116,88 @@ function LocationForm({ formData }) {
   };
 
   return (
-    <div className="location-container">
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          sendFormData(formData, event);
-        }}
-      >
-        <label className="form-label">
-          Building No:
-          <input
-            type="text"
-            name="buildingNo"
-            className="input-field"
-            value={buildingNo}
-            onChange={(e) => setBuildingNo(e.target.value)}
-            required
-          />
-        </label>
-        <label className="form-label">
-          Pincode:
-          <input
-            type="text"
-            name="pincode"
-            className="input-field"
-            value={pincode}
-            onChange={(e) => setPincode(e.target.value)}
-            required
-          />
-        </label>
-        <label className="form-label">
-          City:
-          <input
-            type="text"
-            name="city"
-            className="input-field"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            required
-          />
-        </label>
-        <label className="form-label">
-          State:
-          <input
-            type="text"
-            name="state"
-            className="input-field"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit" className="submit-button" onClick={handleUpdateLocation}>
-          Confirm Address
-        </button>
-        <button type="button" onClick={(e) => handleGetLocation(e)} className="get-location-button">
-          Get My Location
-        </button>
+    <div className='location-page'>
+      <div className="location-container">
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            sendFormData(formData, event);
+          }}
+        >
+          <label className="form-label">
+            Address:
+            <input
+              type="text"
+              name="buildingNo"
+              className="input-field"
+              value={buildingNo}
+              onChange={(e) => setBuildingNo(e.target.value)}
+              required
+            />
+          </label>
+          <label className="form-label">
+            Pincode:
+            <input
+              type="text"
+              name="pincode"
+              className="input-field"
+              value={pincode}
+              onChange={(e) => setPincode(e.target.value)}
+              required
+            />
+          </label>
+          <label className="form-label">
+            City:
+            <input
+              type="text"
+              name="city"
+              className="input-field"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              required
+            />
+          </label>
+          <label className="form-label">
+            State:
+            <input
+              type="text"
+              name="state"
+              className="input-field"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+              required
+            />
+          </label>
+          {(latitude !== null && longitude !== null) && (
+            <div>
+              <iframe
+                id="map-iframe"
+                title="map"
+                width="360"
+                height="270"
+                style={{ border: 0 }}
+                allowFullScreen
+                src={`https://maps.google.com/maps?q=${latitude},${longitude}&z=15&output=embed`}
+              ></iframe>
+            </div>
+          )}
+          <button type="submit" className="confirm-button" onClick={handleUpdateLocation}>
+            Confirm Address
+          </button>
+          <button type="button" onClick={(e) => handleGetLocation(e)} className="get-location-button">
+            Get My Location
+          </button>
 
-        {/* Submit button that refers to sendFormData */}
-        <button type="submit" className="submit-button">
-          Submit
-        </button>
-      </form>
-      {(latitude !== null && longitude !== null) && (
-        <div>
-          <iframe
-            id="map-iframe"
-            title="map"
-            width="360"
-            height="270"
-            frameBorder="0"
-            style={{ border: 0 }}
-            allowFullScreen
-            src={`https://maps.google.com/maps?q=${latitude},${longitude}&z=15&output=embed`}
-          ></iframe>
-        </div>
-      )}
-      {/* Display loading message */}
-      {loading && <p>Loading...</p>}
-      {/* Display backend message */}
-      {!loading && backendMessage && <p>{backendMessage}</p>}
+          {/* Submit button that refers to sendFormData */}
+          <button type="submit" className="submit-button">
+            Submit
+          </button>
+        </form>
+        {/* Display loading message */}
+        {loading && <p>Loading...</p>}
+        {/* Display backend message */}
+        {!loading && backendMessage && <p>{backendMessage}</p>}
+      </div>
     </div>
   );
 }

@@ -4,7 +4,8 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useAsyncValue, useNavigate } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
 import '../CSS/signup-page.css';
-import {auth,provider} from "../config/firebase-config"
+import { auth, provider } from "../config/firebase-config"
+import LoginPage from "./LoginPage";
 
 // importing the required images
 import facebookLogo from './Icons/facebook-logo.png'
@@ -14,12 +15,12 @@ import DonationPageVector from './Images/Donation-Page-Image.png'
 import { signInWithPopup } from "firebase/auth";
 
 // css written in signup-page.css
-const SignupPage = ({loginHandler}) => {
+const SignupPage = ({ loginHandler }) => {
   const [username, setUsername] = useState('');
   const [fName, setFName] = useState('');
   const [lName, setLName] = useState('');
   const [email, setEmail] = useState('');
-  const [contact , setContact] = useState('');
+  const [contact, setContact] = useState('');
   const [password, setPassword] = useState('');
   const [confirmedPassword, setConfirmedPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -37,11 +38,11 @@ const SignupPage = ({loginHandler}) => {
 
     }
 
-      else if (!password.match(passwordFormat)) {
-        setErrorMessage("Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one number.");
-        // return;
-      }
-    
+    else if (!password.match(passwordFormat)) {
+      setErrorMessage("Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one number.");
+      // return;
+    }
+
     else {
       // console.log("username"+username+"pasw"+password+"email"+email);
 
@@ -105,7 +106,7 @@ const SignupPage = ({loginHandler}) => {
         // console.log(response);
         console.log('Signup successful!');
         toast.success("Signed Up Successfully");
-        const user2=await loginHandler(user.email, user.uid, setToken);
+        const user2 = await loginHandler(user.email, user.uid, setToken);
         if (document.cookie.includes("Login")) {
           // Redirect to the home page for regular users
           // console.log("hello");
@@ -131,16 +132,26 @@ const SignupPage = ({loginHandler}) => {
       setErrorMessage("Error signing in with Google:")
     }
   };
-  
-  
-  
+
+  const handleContactNumberChange = (e) => {
+    const { value } = e.target;
+    const isValidNumber = /^\d*$/.test(value); // Regular expression to check if the input is a number
+
+    if (isValidNumber && value.length <= 10) {
+      setContact(value);
+    } else {
+      // Prevent the update if the input is not a valid number or exceeds 10 digits
+      e.preventDefault();
+    }
+  };
+
+  const [showLoginOverlay, setShowLoginOverlay] = useState(false);
 
   return (
     <>
       <div id="signup-page">
-        
         <div className="signup-image-section">
-          <h1 className="signup-page-tagline">Discover the world of compassion and kindness !</h1>
+          <h1 className="signup-page-tagline">Discover a world of compassion and kindness !</h1>
           <img src={DonationPageVector} />
         </div>
         <div className="signup-form-section">
@@ -187,7 +198,8 @@ const SignupPage = ({loginHandler}) => {
                 type="number"
                 placeholder="Contact Number"
                 value={contact}
-                onChange={(e) => setContact(e.target.value)}
+                onChange={handleContactNumberChange}
+                maxLength={10}
               />
               <div className="signup-form-passwords">
                 <input
@@ -230,7 +242,7 @@ const SignupPage = ({loginHandler}) => {
               <div className="signup-social-media-icons">
                 <div className="signup-social-media-icon">
                   <button onClick={handleGoogleClick}>
-                  <img src={googleLogo} />
+                    <img src={googleLogo} />
                   </button>
                 </div>
                 <div className="signup-social-media-icon">
@@ -243,13 +255,20 @@ const SignupPage = ({loginHandler}) => {
             </div>
             <div className="signup-login-link">
               <span>Already have an account?</span>
-              {/* <NavLink to="/LoginPage" className="text-blue-500 hover:text-blue-700">
+              <a  onClick={() => setShowLoginOverlay(true)}>
                 Sign In
-              </NavLink> */}
+              </a>
             </div>
-              {errorMessage && <div className="error-message">{errorMessage}</div>}
+            {errorMessage && <div className="error-message">{errorMessage}</div>}
           </div>
         </div>
+        {showLoginOverlay && (
+          <LoginPage
+            loginHandler={loginHandler}
+            showOverlay={showLoginOverlay}
+            setShowOverlay={setShowLoginOverlay}
+          />
+        )}
       </div>
     </>
   );

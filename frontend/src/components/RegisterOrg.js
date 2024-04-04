@@ -98,7 +98,7 @@ function RegisterOrgPage() {
 
       if (res.ok) {
         console.log("Registration Request Submitted");
-        navigate('/thankyouPage');
+        ;
       } else {
         console.log("Registration Failed");
       }

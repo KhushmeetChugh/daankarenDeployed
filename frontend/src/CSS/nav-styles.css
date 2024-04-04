@@ -9,19 +9,16 @@ header{
     display: flex;
     width: 100%;
     justify-content: center;
-
 }
 
 .header {
     position: fixed;
     top: 0;
-    width: 96%;
+    width: 100%;
     z-index: 1000;
     height: var(--height);
     -webkit-user-select: none;
     user-select: none;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
 }
 
 .navbar-in-home {
@@ -242,7 +239,7 @@ header{
     right: 0;
     width: 235px;
     height: 236px;
-    background-color: rgba(235, 233, 233, 0.895);
+    background-color: rgb(235, 233, 233);
     border-radius: 4px;
     box-shadow: 0 0px 4px rgba(0, 0, 0, 0.347);
     z-index: 1;

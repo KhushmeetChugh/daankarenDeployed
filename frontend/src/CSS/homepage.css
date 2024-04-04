@@ -3,6 +3,7 @@
 
 /* data section */
 .data-section {
+  caret-color: transparent;
   margin-top: 3%;
   width: 100%;
   padding: 3rem 0;

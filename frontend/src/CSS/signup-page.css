@@ -166,6 +166,7 @@
 }
 
 .signup-login-link {
+  caret-color: transparent;
   display: flex;
   align-items: center;
   margin-top: 1rem;
@@ -175,8 +176,14 @@
 
 .signup-login-link a {
   margin-left: 0.5rem;
-  color: black;
+  color: blue;
   font-weight: 500;
+
+}
+
+.signup-login-link a:hover{
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* Responsive Styles */

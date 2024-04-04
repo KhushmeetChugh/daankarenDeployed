@@ -26,6 +26,7 @@ import RegisterOrg from './components/RegisterOrg';
 import VerifyNgoRegistrations from './components/VerifyNgoRequests';
 import ForgotPassword from './components/ForgotPassword';
 import ThankYouPage from './components/ThankYouPage';
+import LocationForm from './components/location';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -122,7 +123,7 @@ function App() {
           <Route path="/ContactPage" element={<ContactPage />} />
           <Route path="/NewCampaignForm" element={<NewCampaignForm />} />
           <Route path="/PartnerPage" element={<PartnerPage />} />
-          <Route path="/SignupPage" element={<SignupPage loginHandler={loginHandler} />}/>
+          <Route path="/SignupPage" element={<SignupPage loginHandler={loginHandler} />} />
           <Route path="/PendingTickets" element={<PendingTickets role={role} />} />
           <Route path="/CampaignCard" element={<CampaignCard />} />
           <Route path="/campaigns/:campaignId" element={<CampaignPage role={role} />} />
@@ -130,12 +131,11 @@ function App() {
           <Route path="/PickupPage" element={<PickUpPage />} />
           <Route path="/PendingDonateItems" element={<PendingDonateItems role={role} />} />
           <Route path="/VerifyNgoRegistrations" element={<VerifyNgoRegistrations role={role} />} />
-          <Route path="/Volunteer" element={<VolunteerItemDonation loginHandler={loginHandler}/>} />
+          <Route path="/Volunteer" element={<VolunteerItemDonation loginHandler={loginHandler} />} />
           <Route path="/profilePage" element={<ProfilePage />} />
           <Route path='/registerOrg' element={<RegisterOrg />} />
           <Route path='/forgotpassword' element={<ForgotPassword />} />
-          <Route path='/thankyouPage' element={<ThankYouPage/>} />
-          
+          <Route path='/confirm-location' element={<LocationForm />} />
         </Routes>
         <Footer />
       </Router>

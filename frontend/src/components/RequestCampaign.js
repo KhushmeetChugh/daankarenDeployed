@@ -58,7 +58,7 @@ function NewCampaign({ onNextClick }) {
     files.forEach(file => formData.append('files', file));
     // images.forEach(image => formData.append('images', image));
     // documents.forEach(document => formData.append('documents', document));
-
+    
     // Clear form fields
     setCampaignName('');
     setGoalAmount('');
@@ -132,6 +132,7 @@ function NewCampaign({ onNextClick }) {
                 value={campaignName}
                 className='req-campaign-input'
                 onChange={(e) => setCampaignName(e.target.value)}
+                autoComplete='off'
                 required
               />
             </div>
