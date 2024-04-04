@@ -159,7 +159,7 @@ const CampaignPage = ({ role }) => {
           </div>
           <div className="cp-campaign-description">
             <h2>Details</h2>
-            <p>{campaign.description.substring(0, 20)}</p>
+            <p>{campaign.description.substring(0,40)+"....."}</p>
           </div>
           <div className="cp-contact-details">
             <h2>Contact Details</h2>

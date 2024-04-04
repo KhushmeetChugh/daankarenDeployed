@@ -28,7 +28,7 @@ const CampaignCard = ({ campaign ,role }) => {
         <img src={campaign.images && campaign.images.length > 0 ? campaign.images[0] : ''} alt={campaign.campaignName} className="cc-campaign-image" />
       <div className="cc-campaign-details">
           <h3 className="cc-campaign-title">{campaign.campaignName}</h3>
-          <p className="cc-campaign-description">{campaign.description.substring(0, 20)}</p>
+          <p className="cc-campaign-description">{campaign.description.substring(0, 40)+"....."}</p>
           <div className="cc-progress-bar">
             <div className="cc-progress" style={{ width: `${(campaign.amountCollected / campaign.goalAmount) * 100}%` }}>
             </div>
