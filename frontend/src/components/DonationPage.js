@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import '../CSS/donation-page.css';
 import DonationItem from './Donation-Item-Card';
 import { Link } from 'react-router-dom';
+import { FaArrowCircleRight } from "react-icons/fa";
 
 // Stuffs to donate
 import booksImage from './Images/donation-stuff/books-to-donate.jpg';
@@ -31,7 +32,7 @@ function DonationPage() {
             </p>
             <div id="schedule-now-button-container">
               <Link to="/PickupPage">
-                <button id="schedule-now-button">Contribute Today</button>
+                <button id="schedule-now-button"><p>Contribute Today</p>&nbsp;&nbsp;<FaArrowCircleRight /></button>
               </Link>
             </div>
           </div>

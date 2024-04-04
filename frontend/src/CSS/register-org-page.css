@@ -1,5 +1,5 @@
 .register-org-page {
-  margin-top: 65px;
+  /* margin-top: 65px; */
 }
 
 .register-org-header {
@@ -24,6 +24,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 35px;
+  padding-top: 95px;
   background-color: rgba(192, 192, 192, 0.511);
 }
 
@@ -176,8 +177,9 @@
   display: inline-flex;
   align-items: center;
   padding: 8px 12px;
-  background-color: #007bff;
-  color: #fff;
+  border: 2px dashed white;
+  font-size: 1.1rem;
+  color: rgb(32, 32, 32);
   border-radius: 3px;
   cursor: pointer;
   margin-bottom: 5px;
@@ -190,6 +192,7 @@
 
 .register-org-file-icon {
   margin-right: 5px;
+  font-size: 1.5rem;
 }
 
 .register-org-form-submit {
