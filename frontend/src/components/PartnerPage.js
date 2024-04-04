@@ -58,7 +58,7 @@ const PartnersPage = () => {
               <div className="partner-card-border-top">
                 <img
                   className="img"
-                  src={"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"}
+                  src={partner.orgImage}
                   alt={partner.orgName}
                 />
               </div>
