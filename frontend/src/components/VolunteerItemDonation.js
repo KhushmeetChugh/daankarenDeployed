@@ -29,7 +29,7 @@ const VolunteerPage = ({ loginHandler }) => {
     const [currentIndex, setCurrentIndex] = useState(8);
 
     const fetchData = () => {
-        fetch("http://localhost:4000/itemDonations/approved")
+        fetch("https://daankarendeployed-1.onrender.com/itemDonations/approved")
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Fetch failed");
@@ -106,7 +106,7 @@ const VolunteerPage = ({ loginHandler }) => {
         }
 
         try {
-            const response = await fetch("http://localhost:4000/volunteerSelf", {
+            const response = await fetch("https://daankarendeployed-1.onrender.com/volunteerSelf", {
                 method: 'POST',
                 headers: {
                     cookies: document.cookie,

@@ -80,7 +80,7 @@ function LocationForm({ formData }) {
 
     if (addressConfirmed) {
       try {
-        const response = await fetch('http://localhost:4000/RequestCampaign', {
+        const response = await fetch('https://daankarendeployed-1.onrender.com/RequestCampaign', {
           method: 'POST',
           body: formData,
         });

@@ -87,7 +87,7 @@ function RegisterOrgPage() {
     }
 
     try {
-      const res = await fetch("http://localhost:4000/registerOrg", {
+      const res = await fetch("https://daankarendeployed-1.onrender.com/registerOrg", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

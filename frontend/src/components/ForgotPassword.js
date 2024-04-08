@@ -14,7 +14,7 @@ const ForgotPassword = () => {
   const handleSendOtp = async () => {
     try {
       console.log("email-="+email);
-      const response = await fetch('http://localhost:4000/send-otp', {
+      const response = await fetch('https://daankarendeployed-1.onrender.com/send-otp', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -33,7 +33,7 @@ const ForgotPassword = () => {
 
   const handleVerifyOtp = async () => {
     try {
-      const response = await fetch('http://localhost:4000/verify-otp', {
+      const response = await fetch('https://daankarendeployed-1.onrender.com/verify-otp', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const ForgotPassword = () => {
     try {
       // console.log("npsw="+newPassword);
 
-      const response = await fetch('http://localhost:4000/change-password', {
+      const response = await fetch('https://daankarendeployed-1.onrender.com/change-password', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",

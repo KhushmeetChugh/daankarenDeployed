@@ -25,7 +25,7 @@ function ContactPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await fetch("http://localhost:4000/contact", {
+      await fetch("https://daankarendeployed-1.onrender.com/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

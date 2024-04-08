@@ -46,7 +46,7 @@ const SignupPage = ({ loginHandler }) => {
     else {
       // console.log("username"+username+"pasw"+password+"email"+email);
 
-      const response = await fetch('http://localhost:4000/signup', {
+      const response = await fetch('https://daankarendeployed-1.onrender.com/signup', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -94,7 +94,7 @@ const SignupPage = ({ loginHandler }) => {
       // console.log("User Photo URL:", user.photoURL);
       // Add more properties as needed
       // console.log(password+email);
-      const response = await fetch('http://localhost:4000/signup', {
+      const response = await fetch('https://daankarendeployed-1.onrender.com/signup', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",

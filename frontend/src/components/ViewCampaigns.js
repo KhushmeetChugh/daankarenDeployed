@@ -20,7 +20,7 @@ function ViewCampaigns({ role }) {
     const type = event.target.innerText;
     setType(type);
   
-    fetch("http://localhost:4000/campaigns/approved")
+    fetch("https://daankarendeployed-1.onrender.com/campaigns/approved")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -63,7 +63,7 @@ function ViewCampaigns({ role }) {
   useEffect(() => {
     async function fetchAllCampaigns() {
       try {
-        const res = await fetch("http://localhost:4000/campaigns/approved");
+        const res = await fetch("https://daankarendeployed-1.onrender.com/campaigns/approved");
         const data = await res.json();
         setLoadingPercentage(70);
         if (res.ok) {

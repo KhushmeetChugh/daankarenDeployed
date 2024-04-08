@@ -12,12 +12,12 @@ const PartnersPage = () => {
     const fetchData = async () => {
       try {
         const brandResponse = await fetch(
-          "http://localhost:4000/partners/brands"
+          "https://daankarendeployed-1.onrender.com/partners/brands"
         );
         const brandData = await brandResponse.json();
         setLoadingPercentage(20);
 
-        const orgResponse = await fetch("http://localhost:4000/partners/org");
+        const orgResponse = await fetch("https://daankarendeployed-1.onrender.com/partners/org");
         setLoadingPercentage(40);
         const orgData = await orgResponse.json();
 

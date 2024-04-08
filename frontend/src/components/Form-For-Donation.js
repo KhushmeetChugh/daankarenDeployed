@@ -102,7 +102,7 @@ const DonationForm = () => {
       // setLoading(true);
       // console.log("Cookies in ft " , document.cookies);
       // console.log(formData.pickupScheduleDate);
-      const response = await fetch('http://localhost:4000/itemsDonationRequest', {
+      const response = await fetch('https://daankarendeployed-1.onrender.com/itemsDonationRequest', {
         method: 'POST',
         headers: {
           cookies: document.cookie,

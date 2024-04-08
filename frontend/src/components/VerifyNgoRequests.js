@@ -15,7 +15,7 @@ const VerifyNgoRegistrations = ({ role }) => {
       try {
         setLoadingPercentage(30);
 
-        const response = await fetch("http://localhost:4000/registerOrg/pending");
+        const response = await fetch("https://daankarendeployed-1.onrender.com/registerOrg/pending");
         if (!response.ok) {
           throw new Error("Problem fetching the Pending NGO Registrations");
         }
@@ -39,7 +39,7 @@ const VerifyNgoRegistrations = ({ role }) => {
 
   const handleDelete = async (registrationID) => {
     try {
-      const response = await fetch(`http://localhost:4000/registerOrg/delete/${registrationID}`, {
+      const response = await fetch(`https://daankarendeployed-1.onrender.com/registerOrg/delete/${registrationID}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ const VerifyNgoRegistrations = ({ role }) => {
 
   const handleApprove = async (registrationID) => {
     try {
-      const response = await fetch(`http://localhost:4000/registerOrg/approve/${registrationID}`, {
+      const response = await fetch(`https://daankarendeployed-1.onrender.com/registerOrg/approve/${registrationID}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'

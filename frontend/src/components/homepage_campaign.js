@@ -12,7 +12,7 @@ const HomepageCampaign = () => {
   useEffect(() => {
     async function fetchAllCampaigns() {
       try {
-        const res = await fetch("http://localhost:4000/campaigns/approved");
+        const res = await fetch("https://daankarendeployed-1.onrender.com/campaigns/approved");
         const data = await res.json();
         console.log("data"+data)
         // setLoadingPercentage(70);
