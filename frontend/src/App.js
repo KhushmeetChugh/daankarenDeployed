@@ -59,8 +59,8 @@ function App() {
   }, []);
 
   async function loginHandler(email, password, setToken) {
-    // console.log("emailinloginhandler="+email);
-    // console.log("pswinloginhandler="+password);
+    console.log("emailinloginhandler="+email);
+    console.log("pswinloginhandler="+password);
     const response = await fetch('https://daankarendeployed-1.onrender.com/login', {
       method: 'POST',
       headers: {

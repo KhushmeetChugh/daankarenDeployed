@@ -101,9 +101,10 @@ const signup=async(req,res)=>{
 }
 
 const login = async(req , res)=>{
+  console.log(req);
   try{
       const {email , password} = req.body;
-      // console.log("email"+email+"psw"+password+"inlofin");
+      console.log("email"+email+"psw"+password+"inlofin");
       const user = await User.findOne({email});
       if(!user){
           res.status(402).json({message:"No such Email Found"});
@@ -130,6 +131,7 @@ const login = async(req , res)=>{
       }
   }
   catch(error){
+    console.log("err"+error);
       res.status(500).json({message :"Login failed in AuthControllers"});
   }
 }

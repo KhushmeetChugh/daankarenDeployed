@@ -19,6 +19,7 @@ const partnerController = require('./controllers/partnerController');
 const cookieParser = require('cookie-parser');
 const itemDonateRouter = require('./routes/pendingItemDonation');
 const approvedItemDonations = require('./routes/approvedItemDonation');
+const auth=require('./routes/auth.routes')
 
 var braintree = require("braintree");
 const donation=require('./models/donationsModel');
@@ -48,72 +49,74 @@ mongoose
   .catch((error) =>
     console.error("MongoDB connection error:", error)
   );
+  
+  
+  app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+  }));
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.json({ limit: '500mb' }));
+  app.use(express.static(path.join(__dirname, "public")));
+  app.use(cookieParser());
+  app.use('/',auth);
   app.use(express.static(path.join(__dirname,"../../frontend/build")));
   app.get("*",(req,res)=>{
     res.sendFile(path.join(__dirname,"../../frontend/build","index.html"))
   })
 
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true,
-}));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json({ limit: '500mb' }));
-app.use(express.static(path.join(__dirname, "public")));
-app.use(cookieParser());
+// app.post("/signup", authController.signup);
+// app.post("/contact", contactController.submitForm);
+// app.post("/RequestCampaign",upload.array('files'),authController.uploadMiddleware,campaignController.RequestCampaign);
+// app.use('/campaigns', campaignRouter);
+// app.use('/campaigns', campaignRouterApproved);
+// // app.post('/signup', upload.single('files') , authController.addressImage, authController.signup);
+// app.post('/login', authController.login);
+// app.post('/logout', authController.logout);
+// app.get('/campaigns/:campaignId',campaignController.campaignDetails);
+// app.post('/campaigns/:campaignId/approve',campaignController.campaignApprove);
+// app.delete('/campaigns/:campaignId',campaignController.campaignDelete);
+// app.post('/braintree/payment',donationController.payment)
+// app.get('/braintree/token',donationController.paymentToken);
+// app.post('/city' , campaignController.getByCity );
+// app.get('/partners/brands', partnerController.getBrandPartners);
+// app.get('/partners/org', partnerController.getOrgPartners);
+// app.get('/fetchCampaignsOfUser/:userId',campaignController.fetchCampaignsOfUser)
+// app.get('/fetchDonatedCampaigns/:userId',campaignController.fetchDonatedCampaigns)
+// app.get('/fetchUserDetails',authController.fetchUserDetails)
 
-app.post("/signup", authController.signup);
-app.post("/contact", contactController.submitForm);
-app.post("/RequestCampaign",upload.array('files'),authController.uploadMiddleware,campaignController.RequestCampaign);
-app.use('/campaigns', campaignRouter);
-app.use('/campaigns', campaignRouterApproved);
-// app.post('/signup', upload.single('files') , authController.addressImage, authController.signup);
-app.post('/login', authController.login);
-app.post('/logout', authController.logout);
-app.get('/campaigns/:campaignId',campaignController.campaignDetails);
-app.post('/campaigns/:campaignId/approve',campaignController.campaignApprove);
-app.delete('/campaigns/:campaignId',campaignController.campaignDelete);
-app.post('/braintree/payment',donationController.payment)
-app.get('/braintree/token',donationController.paymentToken);
-app.post('/city' , campaignController.getByCity );
-app.get('/partners/brands', partnerController.getBrandPartners);
-app.get('/partners/org', partnerController.getOrgPartners);
-app.get('/fetchCampaignsOfUser/:userId',campaignController.fetchCampaignsOfUser)
-app.get('/fetchDonatedCampaigns/:userId',campaignController.fetchDonatedCampaigns)
-app.get('/fetchUserDetails',authController.fetchUserDetails)
+// app.post('/itemsDonationRequest' , authController.verifyToken , itemsDonationRequest );
+// app.delete('/itemsDonationRequest/delete/:donationID' , deleteDonationRequest);
+// app.put('/itemsDonationRequest/approve/:donationID' , approveDonationRquest);
+// app.use('/itemDonations' , itemDonateRouter );
+// app.use('/itemDonations' , approvedItemDonations );
+// //for ngo registration
+// app.get('/registerOrg/pending', getPendingRegistrations);
+// app.post('/registerOrg' , registerOrg);
+// app.delete('/registerOrg/delete/:registrationID' , deleteRegistrationRequest);
+// app.put('/registerOrg/approve/:registrationID' , approveRegistrationRequest);
 
-app.post('/itemsDonationRequest' , authController.verifyToken , itemsDonationRequest );
-app.delete('/itemsDonationRequest/delete/:donationID' , deleteDonationRequest);
-app.put('/itemsDonationRequest/approve/:donationID' , approveDonationRquest);
-app.use('/itemDonations' , itemDonateRouter );
-app.use('/itemDonations' , approvedItemDonations );
-//for ngo registration
-app.get('/registerOrg/pending', getPendingRegistrations);
-app.post('/registerOrg' , registerOrg);
-app.delete('/registerOrg/delete/:registrationID' , deleteRegistrationRequest);
-app.put('/registerOrg/approve/:registrationID' , approveRegistrationRequest);
+// // for volunteers
+// app.post('/volunteerSelf' , authController.verifyToken , handleRides );
+// app.get('/volunteeredRides/:userId' , getRidesVolunteered);
+// app.get('/completedRides/:userId' , getRidesCompleted);
+// app.get('/initiatedRides/:userId' , getRidesInitiated);
+// app.put('/handlePick/:rideId' , handlePick);
+// app.post('/handleDelivery/:rideId' , upload.single('files') , authController.addressImage , handleDelivery );
 
-// for volunteers
-app.post('/volunteerSelf' , authController.verifyToken , handleRides );
-app.get('/volunteeredRides/:userId' , getRidesVolunteered);
-app.get('/completedRides/:userId' , getRidesCompleted);
-app.get('/initiatedRides/:userId' , getRidesInitiated);
-app.put('/handlePick/:rideId' , handlePick);
-app.post('/handleDelivery/:rideId' , upload.single('files') , authController.addressImage , handleDelivery );
+// app.post('/handleProfile/:userId' , upload.single('files') , authController.addressImage , authController.handleProfile );
 
-app.post('/handleProfile/:userId' , upload.single('files') , authController.addressImage , authController.handleProfile );
+// app.put('/handleSeen/:rideId' , handleSeen);
 
-app.put('/handleSeen/:rideId' , handleSeen);
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(500).send("Something went wrong!");
+// });
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something went wrong!");
-});
-
-//verifyng otp
-app.post('/send-otp',authController.sendOtp);
-app.post('/verify-otp',authController.verifyOtp);
-app.post('/change-password',authController.changePassword);
+// //verifyng otp
+// app.post('/send-otp',authController.sendOtp);
+// app.post('/verify-otp',authController.verifyOtp);
+// app.post('/change-password',authController.changePassword);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
