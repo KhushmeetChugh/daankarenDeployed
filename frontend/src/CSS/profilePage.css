@@ -21,10 +21,11 @@
   text-align: center;
   padding: 60px 140px;
   border-radius: 20px;
+  caret-color: transparent;
   background: linear-gradient(135deg, #3dc07a, rgb(54, 97, 205));
 }
 
-.user-profile img {
+.profile-pic-section img {
   width: 180px;
   height: 180px;
   border-radius: 50%;
@@ -35,7 +36,7 @@
   border: 5px solid #fff;
 }
 
-.user-profile h6 {
+.profile-pic-section h6 {
   font-size: 28px;
   font-weight: 700;
   color: #fff;
@@ -44,21 +45,21 @@
   letter-spacing: 1px;
 }
 
-.user-profile p {
+.profile-pic-section p {
   font-size: 16px;
   color: #fff;
 }
 
-.user-profile form {
+.profile-pic-section form {
   border: 2px solid black;
   width: 100px;
 }
 
 .profile-pic-change {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .profile-pic-label {
@@ -68,15 +69,13 @@
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 0.9rem;
 }
 
-.profile-pic-label i {
-  margin-right: 0.5rem;
-}
+/* .profile-pic-label svg {
+  margin-right: 0.2rem;
+  font-size: .95rem;
+} */
 
 .profile-preview-buttons {
   margin-top: 1rem;

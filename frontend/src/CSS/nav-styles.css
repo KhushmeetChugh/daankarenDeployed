@@ -225,7 +225,6 @@ header{
 .sidebar-toggle {
     display: none;
     position: absolute;
-    left: 20px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 24px;
@@ -441,13 +440,13 @@ header{
     }
 
     .sidebar-toggle {
-        left: 5px;
+        left: .5%;
         display: block;
         top: 48%;
-        padding: 7px;
+        padding: 5px;
     }
 
-    .sidebar-toggle:hover {
+    .sidebar-toggle:active {
         border-radius: 50%;
         background-color: rgba(0, 0, 0, 0.283);
     }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../CSS/profilePage.css";
 import CampaignCard from "./CampaignCard";
-
+// import { IoCamera } from "react-icons/io5";
 const MyDonations = ({ user }) => {
   const [campaigns, setCampaigns] = useState([]);
   const [showAll, setShowAll] = useState(false);
@@ -341,7 +341,7 @@ const InitiatedRides = ({ user }) => {
                 <p><b>Rider:</b> {ride.volunteer.username}</p>
                 {ride.imageUrl && (
                   <div>
-                    <p><b>Status: </b> <b style={{color: "green"}}>Delivered</b></p>
+                    <p><b>Status: </b> <b style={{ color: "green" }}>Delivered</b></p>
                     <p>
                       <b>Proof:</b>{" "}
                       <a
@@ -361,7 +361,7 @@ const InitiatedRides = ({ user }) => {
                     </button>
                   </div>
                 )}
-                {!ride.imageUrl && <p><b>Status: </b><b style={{color: "red"}}>Not delivered</b></p>}
+                {!ride.imageUrl && <p><b>Status: </b><b style={{ color: "red" }}>Not delivered</b></p>}
               </div>
             ))}
           {!initiatedRides && <p>No rides initiated</p>}
@@ -444,7 +444,7 @@ const UserProfile = ({ user, volunteeredRides, completedRides }) => {
 
         <div className="profile-pic-change">
           <label htmlFor="fileInput" className="profile-pic-label">
-            <i className="fas fa-camera"></i> Change Profile Pic
+            Change Profile Picture
           </label>
           <input
             type="file"

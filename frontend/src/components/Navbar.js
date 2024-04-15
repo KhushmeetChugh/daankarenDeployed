@@ -91,9 +91,9 @@ const Navcomp = ({ userId, role, setIsLoginClicked }) => {
     "nav-link-items nav-link-items-home"
   );
   const [donateButtonBg, setDonateButtonBg] = useState("#e95858");
-  const [donateButtonClass, setDonateButtonClass] = useState(
-    "navbar-donate-button"
-  );
+  const [donateButtonClass, setDonateButtonClass] = useState("navbar-donate-button");
+  // making navbar to sidebar
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const isHomePage = location.pathname === "/";
@@ -124,7 +124,6 @@ const Navcomp = ({ userId, role, setIsLoginClicked }) => {
     };
   }, [location.pathname, scrolled]);
 
-
   const handleDonateHover = () => {
     setDonateButtonBg("#cb4343");
   };
@@ -136,14 +135,13 @@ const Navcomp = ({ userId, role, setIsLoginClicked }) => {
   };
   const handleNavLinksClick = () => {
     setDonateButtonClass('navbar-donate-button')
+    setIsSidebarOpen(false);
   }
   const handleLoginClick = () => {
     handleNavLinksClick();
     // console.log("Login Clicked");
     setIsLoginClicked(true);
   }
-  // making navbar to sidebar
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
     <>
       <header>
@@ -305,11 +303,11 @@ const Navcomp = ({ userId, role, setIsLoginClicked }) => {
               </div>
             )}
           </Nav>
-          <Sidebar isSidebarOpen={isSidebarOpen} />
           {/* FAB ICONS */}
           {role !== "admin" && (
             <FloatingActions />
           )}
+          <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
         </nav >
       </header>
     </>

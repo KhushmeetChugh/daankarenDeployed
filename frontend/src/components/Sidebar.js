@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../CSS/nav-styles.css";
 import '../CSS/sidebar.css'
 
-const Sidebar = ({ userId, role, setIsLoginClicked, isSidebarOpen }) => {
+const Sidebar = ({ userId, role, setIsLoginClicked, isSidebarOpen, setIsSidebarOpen }) => {
     const [uid, setUid] = useState("");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [roleName, SetRoleName] = useState("");
@@ -36,14 +36,14 @@ const Sidebar = ({ userId, role, setIsLoginClicked, isSidebarOpen }) => {
     );
     return (
         <>
-            {isSidebarOpen && <div className='sidebar'>
+            <div className={`sidebar ${isSidebarOpen ? 'sidebar-open' : 'sidebar-close'}`}>
                 <ul>
                     {roleName === "admin" && (
                         <li >
                             <Link
                                 exact="true"
                                 to="/"
-                                activeclassname="active"
+                                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                             >
                                 AdminDashboard
                             </Link>
@@ -52,7 +52,7 @@ const Sidebar = ({ userId, role, setIsLoginClicked, isSidebarOpen }) => {
                     <li >
                         <Link
                             to="/ViewCampaigns"
-                            activeClassName="active"
+                            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                         >
                             Campaigns
                         </Link>
@@ -61,7 +61,7 @@ const Sidebar = ({ userId, role, setIsLoginClicked, isSidebarOpen }) => {
                         <li >
                             <Link
                                 to="/NewCampaignForm"
-                                activeClassName="active"
+                                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                             >
                                 Request Campaign
                             </Link>
@@ -71,7 +71,7 @@ const Sidebar = ({ userId, role, setIsLoginClicked, isSidebarOpen }) => {
                         <li>
                             <Link
                                 to="/PartnerPage"
-                                activeclassname="active"
+                                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                             >
                                 Our Partners
                             </Link>
@@ -81,7 +81,7 @@ const Sidebar = ({ userId, role, setIsLoginClicked, isSidebarOpen }) => {
                         <li >
                             <Link
                                 to="/registerOrg"
-                                activeclassname="active"
+                                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                             >
                                 Register Organisation
                             </Link>
@@ -92,7 +92,7 @@ const Sidebar = ({ userId, role, setIsLoginClicked, isSidebarOpen }) => {
                         <li >
                             <Link
                                 to="/Volunteer"
-                                activeclassname="active"
+                                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                             >
                                 Volunteer
                             </Link>
@@ -100,9 +100,10 @@ const Sidebar = ({ userId, role, setIsLoginClicked, isSidebarOpen }) => {
                     )}
 
                     {roleName !== "admin" && (
-                        <li className="donate-button-container">
+                        <li>
                             <Link
                                 to="/DonationPage"
+                                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                             >
                                 Donate
                             </Link>
@@ -112,7 +113,7 @@ const Sidebar = ({ userId, role, setIsLoginClicked, isSidebarOpen }) => {
                         <li >
                             <Link
                                 to="/PendingTickets"
-                                activeclassname="active"
+                                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                             >
                                 Pending Tickets
                             </Link>
@@ -123,7 +124,7 @@ const Sidebar = ({ userId, role, setIsLoginClicked, isSidebarOpen }) => {
                         <li >
                             <Link
                                 to="/VerifyNgoRegistrations"
-                                activeclassname="active"
+                                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                             >
                                 Organisation requests
                             </Link>
@@ -134,7 +135,7 @@ const Sidebar = ({ userId, role, setIsLoginClicked, isSidebarOpen }) => {
                         <li >
                             <Link
                                 to="/PendingDonateItems"
-                                activeclassname="active"
+                                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                             >
                                 Donate Items
                             </Link>
@@ -142,7 +143,6 @@ const Sidebar = ({ userId, role, setIsLoginClicked, isSidebarOpen }) => {
                     )}
                 </ul>
             </div >
-            }
         </>
     );
 };
