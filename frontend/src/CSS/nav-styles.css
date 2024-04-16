@@ -413,12 +413,6 @@ header{
 
 @media (max-width: 768px) {
 
-    .nav-links,
-    .login-signup,
-    .profile-logout {
-        display: none;
-    }
-
     :root {
         --height: 50px;
     }
@@ -435,8 +429,15 @@ header{
 
     /* Show only logo and profile/logout button */
     .foundation,
-    .profile-logout {
+    .profile-logout,
+    .login-signup {
         display: block;
+    }
+
+    .login-signup{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .sidebar-toggle {
