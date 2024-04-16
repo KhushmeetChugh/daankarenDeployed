@@ -18,9 +18,11 @@ function Carousel() {
             <div className="homepage-hero-section">
                 <img src={imageSrc} alt="background" className="carousel" />
                 <div id="hp-hero-content">
-                    <h2 className="hp-hero-quote"><p>❝ We make a living by what we get, but we make a life</p>
-                        <p>by what we give.❞</p></h2>
-                    <p className="hp-hero-description">Be the change you wish to see in the world.</p>
+                    <h2 className="hp-hero-quote">
+                        <p>❝ We make a living by what we get, but we make a life</p>
+                        <p>by what we give.❞</p>
+                        <p className="hp-hero-description">Be the change you wish to see in the world.</p>
+                    </h2>
                     <div id="hp-schedule-now-button-container">
                         <Link to="/PickupPage">
                             <button id="hp-schedule-now-button"><p>Book a Pickup</p>&nbsp;&nbsp;<FaArrowCircleRight /></button>

@@ -1,3 +1,4 @@
+/* Base Styles */
 @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 .homepage-hero-section {
@@ -18,15 +19,18 @@
 #hp-hero-content {
     caret-color: transparent;
     position: absolute;
-    top: 48%;
+    top: 50%;
+    /* Center the content vertically */
     left: 50%;
+    /* Center the content horizontally */
     transform: translate(-50%, -50%);
     text-align: center;
     width: 65%;
+    /* Default width */
     color: white;
     z-index: 1;
     opacity: 0;
-    transition: opacity .8s ease-in-out;
+    transition: opacity 0.8s ease-in-out;
 }
 
 #hp-hero-content.fade-in {
@@ -35,6 +39,7 @@
 
 .hp-hero-quote {
     font-size: 2.8rem;
+    /* Default font size */
     font-family: "Zilla Slab", serif;
     font-weight: 500;
     font-style: italic;
@@ -42,6 +47,7 @@
 
 .hp-hero-description {
     font-size: 1.5rem;
+    /* Default font size */
     margin-top: 1rem;
     margin-bottom: 2rem;
     font-family: 'Poppins', sans-serif;
@@ -58,8 +64,10 @@
     align-items: center;
     color: white;
     font-size: 1.5rem;
+    /* Default font size */
     font-weight: 500;
     padding: 8px 18px;
+    /* Default padding */
     border-radius: 30px;
     cursor: pointer;
     text-decoration: none;
@@ -70,5 +78,111 @@
 #hp-schedule-now-button:hover {
     background-color: white;
     color: black;
-    transition: all .1s linear;
+    transition: all 0.1s linear;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+
+    /* Adjustments for screens up to 1200px (large tablets and small laptops) */
+    #hp-hero-content {
+        width: 80%;
+        /* Increase width */
+    }
+
+    .hp-hero-quote {
+        font-size: 2.5rem;
+        /* Reduce font size */
+    }
+
+    .hp-hero-description {
+        font-size: 1.3rem;
+        /* Reduce font size */
+    }
+}
+
+@media (max-width: 1024px) {
+
+    /* Adjustments for screens up to 1024px (tablets) */
+    #hp-hero-content {
+        width: 75%;
+        /* Increase width */
+    }
+
+    .hp-hero-quote {
+        font-size: 2.2rem;
+        /* Reduce font size */
+    }
+
+    .hp-hero-description {
+        font-size: 1.2rem;
+        /* Reduce font size */
+    }
+
+    #hp-schedule-now-button {
+        font-size: 1.3rem;
+        /* Reduce button font size */
+        padding: 6px 16px;
+        /* Reduce padding */
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Adjustments for screens up to 768px (smaller tablets and large phones) */
+    #hp-hero-content {
+        width: 90%;
+        /* Increase width */
+        top: 60%;
+        /* Adjust vertical position */
+    }
+
+    .hp-hero-quote {
+        font-size: 1.75rem;
+        /* Reduce font size */
+    }
+
+    .hp-hero-description {
+        font-size: 1rem;
+        /* Reduce font size */
+    }
+
+    #hp-schedule-now-button {
+        font-size: 1.2rem;
+        /* Reduce button font size */
+        padding: 6px 16px;
+        /* Reduce padding */
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Adjustments for screens up to 480px (phones) */
+    #hp-hero-content {
+        width: 95%;
+        /* Increase width */
+        top: 50%;
+        /* Adjust vertical position */
+    }
+
+    .hp-hero-quote {
+        font-size: 1.5rem;
+        /* Reduce font size */
+    }
+
+    .hp-hero-description {
+        font-size: 0.9rem;
+        /* Reduce font size */
+        margin-top: 0.5rem;
+        /* Reduce margin */
+        margin-bottom: 1rem;
+        /* Reduce margin */
+    }
+
+    #hp-schedule-now-button {
+        font-size: 1rem;
+        /* Reduce button font size */
+        padding: 4px 14px;
+        /* Reduce padding */
+    }
 }
