@@ -452,3 +452,12 @@ header{
         background-color: rgba(0, 0, 0, 0.283);
     }
 }
+
+@media (max-width: 480px){
+    .foundation {
+        font-size: 1.55rem;
+        border-radius: 5px;
+        left: 34%;
+        display: flex;
+    }
+}
