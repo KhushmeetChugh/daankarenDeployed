@@ -11,6 +11,7 @@ footer {
   font-family: 'Roboto Slab', serif;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  caret-color: transparent;
 }
 
 .footer {
