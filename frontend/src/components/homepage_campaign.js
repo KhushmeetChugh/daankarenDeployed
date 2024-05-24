@@ -1,22 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Assuming you're using React Router
 import '../CSS/homepage.css';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import CampaignCard from "./CampaignCard";
 
 const HomepageCampaign = () => {
-  const [campaigns,setCampaigns]=useState(null);
+  const [campaigns, setCampaigns] = useState(null);
 
 
-    
+
   useEffect(() => {
     async function fetchAllCampaigns() {
       try {
         const res = await fetch("https://daankarendeployed-1.onrender.com/campaigns/approved");
         const data = await res.json();
-        console.log("data"+data)
         // setLoadingPercentage(70);
-        setCampaigns(data.slice(0,4));
+        setCampaigns(data.slice(0, 4));
         if (res.ok) {
 
           // setLoadingPercentage(100);
@@ -32,9 +31,7 @@ const HomepageCampaign = () => {
       console.log(campaigns);
     }
     // setLoadingPercentage(10);
-    console.log("imh")    
-    fetchAllCampaigns(); 
-    console.log("imhere")
+    fetchAllCampaigns();
   }, []);
 
   return (
@@ -44,11 +41,11 @@ const HomepageCampaign = () => {
         <div className="heading-decoration"></div>
       </div>
       <div className="campaign-cards-container">
-      {campaigns ? campaigns.map(campaign => (                   <CampaignCard
-                    key={campaign._id}
-                    campaign={campaign}
-                    role={"user"}
-                  />)) : <p>Loading...</p>}
+        {campaigns ? campaigns.map(campaign => (<CampaignCard
+          key={campaign._id}
+          campaign={campaign}
+          role={"user"}
+        />)) : <p>Loading...</p>}
 
       </div>
       <div className='homepage-see-more-campaign'>

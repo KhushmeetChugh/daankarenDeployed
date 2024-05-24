@@ -34,6 +34,24 @@ const Sidebar = ({ userId, role, setIsLoginClicked, isSidebarOpen, setIsSidebarO
         [isLoggedIn],
         [role]
     );
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+            const sidebar = document.querySelector('.sidebar');
+            const toggleButton = document.querySelector('.sidebar-toggle'); // Find the toggle button
+
+            // Check if the clicked target is neither inside the sidebar nor the toggle button
+            if (sidebar && !sidebar.contains(event.target) && toggleButton && !toggleButton.contains(event.target)) {
+                setIsSidebarOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleOutsideClick);
+
+        return () => {
+            document.removeEventListener('mousedown', handleOutsideClick);
+        };
+    }, [setIsSidebarOpen]);
+
     return (
         <>
             <div className={`sidebar ${isSidebarOpen ? 'sidebar-open' : 'sidebar-close'}`}>
