@@ -52,6 +52,7 @@
 }
 
 .signup-form-heading {
+  caret-color: transparent;
   margin-bottom: 2rem;
   text-align: center;
   font-size: 2rem;
@@ -200,6 +201,8 @@
     height: auto;
     padding: .5rem .25rem;
     justify-content: flex-start;
+    caret-color: transparent;
+    gap: 1rem;
   }
 
   /* Adjust the image section */

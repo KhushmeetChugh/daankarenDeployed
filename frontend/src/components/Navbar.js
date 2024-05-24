@@ -8,6 +8,7 @@ import ProfileButton from "./ProfileButton";
 // import profileImageUrl from "./Images/pexels-photo-415829.webp";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Sidebar from "./Sidebar";
+import logo from './Icons/daanKarenLogo.svg'
 
 const Navcomp = ({ userId, role, setIsLoginClicked }) => {
   const [uid, setUid] = useState("");
@@ -159,6 +160,7 @@ const Navcomp = ({ userId, role, setIsLoginClicked }) => {
               <NavLink exact="true" to="/" onClick={handleNavLinksClick}>
                 <span id="daan">दान</span>
                 <span id="karen">Karen</span>
+                {/* <img src={logo} alt="Brand Logo"/> */}
               </NavLink>
             </h1>
 
