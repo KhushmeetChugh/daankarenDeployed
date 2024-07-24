@@ -291,6 +291,7 @@ const sendOtp=async(req,res)=>{
   // console.log("email="+email);
   const user=await User.findOne({email})
   if(!user){
+    console.log("user not found");
     res.status(404).json({message:"User not found"});
     return;
   }
